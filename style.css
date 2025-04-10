@@ -1,0 +1,109 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fallback font */
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); /* Cool dark blue gradient */
+    color: #e4e4e4; /* Light text color for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    animation: backgroundPan 15s linear infinite alternate; /* Subtle background animation */
+    background-size: 400% 400%; /* Needed for gradient animation */
+}
+
+@keyframes backgroundPan {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.content-wrapper {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent background for content */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 800px; /* Max width for content */
+    width: 90%; /* Responsive width */
+    animation: fadeInScale 1s ease-out forwards; /* Entrance animation */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.main-heading {
+    font-family: 'Orbitron', sans-serif; /* Cool futuristic font */
+    font-size: 3.5em; /* Large heading */
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.7), /* Deep sky blue glow */
+                 0 0 20px rgba(0, 191, 255, 0.5),
+                 0 0 30px rgba(0, 191, 255, 0.3);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    animation: pulseGlow 3s infinite alternate ease-in-out; /* Glowing animation */
+}
+
+@keyframes pulseGlow {
+    from {
+        text-shadow: 0 0 8px rgba(0, 191, 255, 0.6),
+                     0 0 16px rgba(0, 191, 255, 0.4),
+                     0 0 24px rgba(0, 191, 255, 0.2);
+    }
+    to {
+        text-shadow: 0 0 12px rgba(0, 191, 255, 0.8),
+                     0 0 24px rgba(0, 191, 255, 0.6),
+                     0 0 36px rgba(0, 191, 255, 0.4);
+    }
+}
+
+.embed-container {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Near-opaque white background for readability */
+    border-radius: 10px;
+    padding: 10px; /* Padding already exists in embed, adjust if needed */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Limit embed width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style the text inside the embed for better contrast on its white background */
+.embed-container span {
+    color: #333 !important; /* Darker text color, !important might be needed to override inline styles */
+}
+
+.embed-container a {
+    color: #6466F1 !important; /* Ensure link color is as intended */
+    text-decoration: underline !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .main-heading {
+        font-size: 2.5em; /* Smaller heading on small screens */
+    }
+
+    .content-wrapper {
+        padding: 30px 20px;
+    }
+}
