@@ -1,6 +1,13 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap');
-
+/* 1. Define your custom font */
+@font-face {
+  font-family: 'SF'; /* This is the name YOU choose to use in CSS */
+  src: url('SFPro.ttf') format('truetype'); /* Optional: Add other formats if you have them (like .ttf) */
+  /* You can also specify weight and style if the file is specific */
+  font-weight: bold;
+  /* font-style: italic; */
+}
 /* Basic Reset */
 * {
     margin: 0;
@@ -52,7 +59,7 @@ body {
 }
 
 .main-heading {
-    font-family: 'Orbitron', sans-serif; /* Cool futuristic font */
+    font-family: 'SF', sans-serif; /* Cool futuristic font */
     font-size: 3.5em; /* Large heading */
     color: #ffffff;
     text-shadow: 0 0 10px rgba(0, 191, 255, 0.7), /* Deep sky blue glow */
