@@ -17,34 +17,37 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-    color: #e4e4e4;
+    /* --- GIF Background --- */
+    background-image: url('background.gif'); /* Make sure background.gif is in the same folder */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center center; /* Center the background */
+    background-repeat: no-repeat; /* Prevent tiling unless your GIF is a pattern */
+    background-attachment: fixed; /* Keep background fixed during scroll */
+    /* --- End GIF Background --- */
+
+    /* color: #e4e4e4; /* Base text color - can keep or change if needed */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
     overflow-x: hidden;
-    animation: backgroundPan 15s linear infinite alternate;
-    background-size: 400% 400%;
+    /* Removed gradient background and its animation */
 }
 
-@keyframes backgroundPan {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
+/* Removed @keyframes backgroundPan */
 
 .content-wrapper {
-    /* Reverted: Items will stack based on normal flow */
-    text-align: center; /* Center inline/inline-block children */
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 40px 30px; /* Restored padding */
+    text-align: center;
+    /* Background slightly less transparent for readability over GIF */
+    background-color: rgba(0, 0, 0, 0.2); /* Darker semi-transparent background */
+    padding: 40px 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Slightly stronger shadow */
+    backdrop-filter: blur(8px); /* Slightly stronger blur */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
     max-width: 800px;
-    width: 90%; /* Restored responsive width */
+    width: 90%;
     animation: fadeInScale 1s ease-out forwards;
 }
 
@@ -55,75 +58,68 @@ body {
 
 .main-heading {
     font-family: 'SF', sans-serif;
-    font-size: 3.5em; /* Restored original larger size */
-    margin-bottom: 40px; /* Restored bottom margin for space */
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.7), /* Restored original shadow */
-                 0 0 20px rgba(0, 191, 255, 0.5),
-                 0 0 30px rgba(0, 191, 255, 0.3);
-    letter-spacing: 2px; /* Restored letter spacing */
-    animation: pulseGlow 3s infinite alternate ease-in-out;
+    font-size: 3.5em;
+    margin-bottom: 40px;
+    /* --- Black & White Theme --- */
+    color: #ffffff; /* White text */
+    /* Removed colored text-shadow and pulse animation */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Simple black shadow for depth */
+    /* --- End B&W Theme --- */
+    letter-spacing: 2px;
+    /* Removed animation: pulseGlow */
 }
 
-@keyframes pulseGlow {
-    /* Restored original glow */
-    from {
-        text-shadow: 0 0 8px rgba(0, 191, 255, 0.6),
-                     0 0 16px rgba(0, 191, 255, 0.4),
-                     0 0 24px rgba(0, 191, 255, 0.2);
-    }
-    to {
-        text-shadow: 0 0 12px rgba(0, 191, 255, 0.8),
-                     0 0 24px rgba(0, 191, 255, 0.6),
-                     0 0 36px rgba(0, 191, 255, 0.4);
-    }
-}
+/* Removed @keyframes pulseGlow */
 
 /* Styles for the social media links container */
 .social-links {
-    margin-top: 30px; /* Position below heading (adjust if needed) */
-    display: flex; /* Arrange icons horizontally */
-    justify-content: center; /* Center icons horizontally */
-    align-items: center; /* Align icons vertically */
-    gap: 20px; /* Space between icons (adjust as needed) */
-    flex-wrap: wrap; /* Allow icons to wrap */
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Styles for individual social media icons */
 .social-icon {
-    /* --- Size Adjustment --- */
-    width: 35px; /* Smaller icon width */
-    height: 35px; /* Smaller icon height */
-    /* --- End Size Adjustment --- */
+    width: 35px; /* Keep smaller size */
+    height: 35px;
     object-fit: contain;
     vertical-align: middle;
     transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(30%) brightness(1);
+    /* --- Black & White Theme --- */
+    filter: grayscale(100%); /* Make icons black and white */
+    /* --- End B&W Theme --- */
 }
 
 /* Hover effect for social media icons */
 .social-links a:hover .social-icon {
     transform: scale(1.15);
-    filter: grayscale(0%) brightness(1.1);
+    /* --- B&W Theme Hover --- */
+    filter: grayscale(0%); /* Reveal color on hover */
+    /* --- End B&W Theme Hover --- */
 }
 
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .main-heading {
-        font-size: 2.5em; /* Keep heading adjustment for small screens */
+        font-size: 2.5em;
     }
 
     .content-wrapper {
-        padding: 30px 20px; /* Keep padding adjustment */
+        padding: 30px 20px;
+         background-color: rgba(0, 0, 0, 0.3); /* Slightly darker on mobile */
+         backdrop-filter: blur(5px); /* Less blur on mobile potentially */
     }
 
     .social-icon {
-        width: 32px; /* Slightly smaller icons on small screens too */
+        width: 32px;
         height: 32px;
     }
 
     .social-links {
-        gap: 15px; /* Less space between smaller icons */
+        gap: 15px;
     }
 }
